@@ -37,13 +37,13 @@
         const response = await fetch('https://api.github.com/repos/kiaraEz/5MCSI_Metriques/commits');
         const commits = await response.json();
         const commitCountPerDateTime = {};
-
+  
         // Process commits to count per day and hour
-        commits.forEach(commit => {
+        commits.reverse.forEach(commit => {
           const date = new Date(commit.commit.author.date);
           const day = date.toISOString().split('T')[0]; // YYYY-MM-DD
           const time = date.toISOString().split('T')[1].substring(0, 5); // HH:MM
-          const dateTimeStr = `${day} ${time}`;
+          const dateTimeStr = `${time} ${day}`;
 
           if (commitCountPerDateTime[dateTimeStr]) {
             commitCountPerDateTime[dateTimeStr] += 1;
