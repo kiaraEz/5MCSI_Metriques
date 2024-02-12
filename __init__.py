@@ -39,7 +39,7 @@ def contact():
 
 
 @app.route("/commits/")
-def contact():
+def commits():
     return render_template("commits.html")
 
   
