@@ -3,82 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulaire Élégant</title>
+    <title>Formulaire Professionnel</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <style>
-    body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    <style>
+        body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.background-container {
+    background-image: url('https://thumbs.dreamstime.com/b/rayons-de-soleil-plage-coucher-du-133301221.jpg'); /* Remplacez 'your-image-url.jpg' par le lien de votre image */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
 }
 
 .formulaire-container {
-    background-color: white;
-    padding: 40px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 50px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    width: 90%;
+    max-width: 500px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .champ-formulaire {
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .champ-formulaire label {
     display: block;
     margin-bottom: 5px;
-    color: #333;
 }
 
 .champ-formulaire input[type="text"],
 .champ-formulaire textarea {
     width: 100%;
     padding: 10px;
-    border-radius: 4px;
+    border-radius: 5px;
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
 
 .champ-formulaire textarea {
-    resize: vertical;
+    resize: none;
 }
 
 button {
+    display: block;
+    width: 100%;
+    padding: 10px;
     background-color: #007bff;
     color: white;
-    padding: 10px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background 0.3s ease-in-out;
 }
 
 button:hover {
     background-color: #0056b3;
 }
 
-  </style>
-    <div class="formulaire-container">
-        <form id="form-contact">
-            <div class="champ-formulaire">
-                <label for="nom">Nom</label>
-                <input type="text" id="nom" name="nom" required>
-            </div>
-            <div class="champ-formulaire">
-                <label for="prenom">Prénom</label>
-                <input type="text" id="prenom" name="prenom" required>
-            </div>
-            <div class="champ-formulaire">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="4" required></textarea>
-            </div>
-            <button type="submit">Envoyer</button>
-        </form>
+    </style>
+    <div class="background-container">
+        <div class="formulaire-container">
+            <h1>Contactez-nous</h1>
+            <form id="form-contact">
+                <div class="champ-formulaire">
+                    <label for="nom">Nom</label>
+                    <input type="text" id="nom" name="nom" required>
+                </div>
+                <div class="champ-formulaire">
+                    <label for="prenom">Prénom</label>
+                    <input type="text" id="prenom" name="prenom" required>
+                </div>
+                <div class="champ-formulaire">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="4" required></textarea>
+                </div>
+                <button type="submit">Envoyer</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>
