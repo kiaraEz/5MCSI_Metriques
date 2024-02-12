@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Histogramme</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  </head>
+
+  <body>
+    <div id="chart_div"></div>
+<script>
+function drawChart(data) {
+  // Ajout d'une colonne supplémentaire pour les annotations
+  var dataArray = [['Date', 'Température', {role: 'style'}, {role: 'annotation'}]];
+
+  data.results.forEach(entry => {
+    var date = new Date(entry.Jour * 1000);
+    var color = 'color: ' + getColorForTemperature(entry.temp);
+    var annotation = entry.temp.toString(); // Afficher la température comme annotation
+    dataArray.push([date.toLocaleDateString(), entry.temp, color, annotation]);
+  });
+
+  var dataTable = google.visualization.arrayToDataTable(dataArray);
+
+  var options = {
+    title: 'Évolution des températures de Paris pour les 16 prochains jours',
+    legend: {position: 'none'},
+    hAxis: {title: 'Date'},
+    vAxis: {title: 'Température'},
+    annotations: {
+      alwaysOutside: false, // Les annotations seront affichées à l'intérieur par défaut
+      textStyle: {
+        fontSize: 12, // Vous pouvez ajuster la taille de police ici
+        color: '#000', // Et la couleur du texte des annotations
+        auraColor: 'none' // Désactive l'arrière-plan des annotations
+      },
+      stem: {
+        length: 0 // Supprime la tige pour que les annotations apparaissent directement sur les barres
+      }
+    },
+    bar: {groupWidth: "95%"} // Ajuste la largeur des barres pour mieux voir les annotations
+  };
+
+  var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+  chart.draw(dataTable, options);
+}
+
+</script>
+
+
+
+  </body>
+</html>
