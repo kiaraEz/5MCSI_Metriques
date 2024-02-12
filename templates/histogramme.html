@@ -8,18 +8,29 @@
   <body>
     <div id="chart_div"></div>
 <script>
-      fetch('/paris/')
+    fetch('/paris/')
       .then(response => response.json())
       .then(data => {
         drawChart(data);
       });
+
+  function temperatureColor(temp) {
+    if(temp < 0) {
+      return '#1E90FF'; // Bleu pour les températures froides
+    } else if(temp >= 0 && temp < 20) {
+      return '#FFD700'; // Jaune pour les températures modérées
+    } else {
+      return '#FF4500'; // Rouge pour les températures chaudes
+    }
+  }
+  
 function drawChart(data) {
   // Ajout d'une colonne supplémentaire pour les annotations
   var dataArray = [['Date', 'Température', {role: 'style'}, {role: 'annotation'}]];
 
   data.results.forEach(entry => {
     var date = new Date(entry.Jour * 1000);
-    var color = 'color: ' + getColorForTemperature(entry.temp);
+    var color = 'color: ' + temperatureColor(entry.temp);
     var annotation = entry.temp.toString(); // Afficher la température comme annotation
     dataArray.push([date.toLocaleDateString(), entry.temp, color, annotation]);
   });
