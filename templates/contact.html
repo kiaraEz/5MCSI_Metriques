@@ -77,11 +77,17 @@ button {
 button:hover {
     background-color: #0056b3;
 }
-
+.image-profil {
+    width: 60px; /* Ou la taille souhaitée */
+    height: 60px; /* Assurez-vous que la largeur et la hauteur sont identiques pour un cercle parfait */
+    border-radius: 50%; /* Ceci rend l'image ronde */
+    margin-right: 15px; /* Ajustez l'espacement entre l'image et le texte */
+}
     </style>
     <div class="background-container">
         <div class="formulaire-container">
-            <h1>Contactez-nous</h1>
+            <img src="pp.png" alt="Profil" class="image-profil">
+            <h1>Contactez-moi</h1>
             <form id="form-contact">
                 <div class="champ-formulaire">
                     <label for="nom">Nom</label>
