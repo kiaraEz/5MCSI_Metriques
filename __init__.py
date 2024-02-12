@@ -37,6 +37,11 @@ def mongraphique():
 def contact():
     return render_template("contact.html")
 
+
+@app.route("/commits/")
+def contact():
+    return render_template("commits.html")
+
   
 if __name__ == "__main__":
   app.run(debug=True)
