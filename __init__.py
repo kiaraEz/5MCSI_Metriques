@@ -28,6 +28,10 @@ def meteo():
 def hello_world():
     return render_template('hello.html')
 
+@app.route('/histogramme')
+def hello_world():
+    return render_template('histogramme.html')
+
 @app.route("/rapport/")
 def mongraphique():
     return render_template("graphique.html")
