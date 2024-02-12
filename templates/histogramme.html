@@ -9,6 +9,15 @@
     <div id="chart_div"></div>
 <script>
   google.charts.load('current', {packages: ['corechart']});
+  google.charts.setOnLoadCallback(draw);
+
+  function draw() {
+            fetch('/paris/')
+      .then(response => response.json())
+      .then(data => {
+        drawChart(data);
+      });
+  }
 
 
   function temperatureColor(temp) {
@@ -56,11 +65,7 @@ function drawChart(data) {
   var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
   chart.draw(dataTable, options);
 }
-      fetch('/paris/')
-      .then(response => response.json())
-      .then(data => {
-        drawChart(data);
-      });
+
 </script>
 
 
