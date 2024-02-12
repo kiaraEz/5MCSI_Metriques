@@ -39,7 +39,7 @@
         const commitCountPerDateTime = {};
   
         // Process commits to count per day and hour
-        commits.reverse.forEach(commit => {
+        commits.forEach(commit => {
           const date = new Date(commit.commit.author.date);
           const day = date.toISOString().split('T')[0]; // YYYY-MM-DD
           const time = date.toISOString().split('T')[1].substring(0, 5); // HH:MM
